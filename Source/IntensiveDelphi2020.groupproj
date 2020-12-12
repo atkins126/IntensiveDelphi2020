@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7A76BF4F-2C7A-4665-9310-732BCD270CEB}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="basic\HorseIntensiveDelphi2020_Basic.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="annotations\HorseIntensiveDelphi2020_Annotation.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="HorseIntensiveDelphi2020_Basic">
+        <MSBuild Projects="basic\HorseIntensiveDelphi2020_Basic.dproj"/>
+    </Target>
+    <Target Name="HorseIntensiveDelphi2020_Basic:Clean">
+        <MSBuild Projects="basic\HorseIntensiveDelphi2020_Basic.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HorseIntensiveDelphi2020_Basic:Make">
+        <MSBuild Projects="basic\HorseIntensiveDelphi2020_Basic.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="HorseIntensiveDelphi2020_Annotation">
+        <MSBuild Projects="annotations\HorseIntensiveDelphi2020_Annotation.dproj"/>
+    </Target>
+    <Target Name="HorseIntensiveDelphi2020_Annotation:Clean">
+        <MSBuild Projects="annotations\HorseIntensiveDelphi2020_Annotation.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HorseIntensiveDelphi2020_Annotation:Make">
+        <MSBuild Projects="annotations\HorseIntensiveDelphi2020_Annotation.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="HorseIntensiveDelphi2020_Basic;HorseIntensiveDelphi2020_Annotation"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="HorseIntensiveDelphi2020_Basic:Clean;HorseIntensiveDelphi2020_Annotation:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="HorseIntensiveDelphi2020_Basic:Make;HorseIntensiveDelphi2020_Annotation:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

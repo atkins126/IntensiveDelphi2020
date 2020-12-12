@@ -15,8 +15,8 @@ procedure SwaggerConfig;
 begin
   Swagger
     .Info
-      .Title('Horse Sample')
-      .Description('API Horse')
+      .Title('Horse Basic')
+      .Description('Horse Basic Intensive Delphi 2020')
       .Contact
         .Name('Contact Name')
         .Email('contact@email.com.br')
