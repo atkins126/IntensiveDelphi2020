@@ -1,0 +1,13 @@
+{
+	"name": "basic",
+	"description": "",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "./",
+	"projects": [],
+	"dependencies": {
+		"github.com/hashload/horse": "^v2.0.6",
+		"github.com/hashload/jhonson": "^1.0.7",
+		"https://github.com/gabrielbaltazar/gbswagger": "2.1.0"
+	}
+}

@@ -1,0 +1,126 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Horse Sample
+  description: API Horse
+  contact:
+    name: Gabriel Baltazar
+    url: http://gabriel.com.br
+    email: gabriel@email.com
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+host: localhost:9000
+basePath: /v1
+schemes: 
+  - http
+consumes: 
+  - application/json
+produces: 
+  - application/json
+paths:
+  '/user':
+    get:
+      tags:
+        - User
+      summary: List users
+      description: List users
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+    post:
+      tags:
+        - User
+      summary: Insert a new user
+      description: Insert a new user
+      parameters:
+        - in: body
+          name: user
+          description: 'user data'
+          required: true
+          schema: 
+            $ref: '#/definitions/User'
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+            
+  '/user/{id}':
+    get:
+      tags:
+        - User
+      summary: Find user
+      description: Find user
+      parameters:
+        - in: path
+          name: id
+          description: user id
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+    
+    put:
+      tags:
+        - User
+      summary: Update user
+      description: Update user
+      parameters:
+        - in: path
+          name: id
+          description: user id
+          required: true
+          type: string
+        - in: body
+          name: user
+          description: 'user data'
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        202:
+          description: Accepted
+          schema:
+            $ref: '#/definitions/User'
+    
+    delete:
+      tags:
+        - User
+      summary: Delete user
+      description: Delete user
+      parameters:
+        - in: path
+          name: id
+          description: user id
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+    
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+      name: 
+        type: string
+      lastName:
+        type: string
+      birthdayDate:
+        type: string
+        format: date-time
+      lastUpdate:
+        type: string
+        format: date-time
