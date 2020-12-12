@@ -9,6 +9,9 @@
         <Projects Include="annotations\HorseIntensiveDelphi2020_Annotation.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="validations\HorseIntensiveDelphi2020_Validation.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="HorseIntensiveDelphi2020_Annotation:Make">
         <MSBuild Projects="annotations\HorseIntensiveDelphi2020_Annotation.dproj" Targets="Make"/>
     </Target>
+    <Target Name="HorseIntensiveDelphi2020_Validation">
+        <MSBuild Projects="validations\HorseIntensiveDelphi2020_Validation.dproj"/>
+    </Target>
+    <Target Name="HorseIntensiveDelphi2020_Validation:Clean">
+        <MSBuild Projects="validations\HorseIntensiveDelphi2020_Validation.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HorseIntensiveDelphi2020_Validation:Make">
+        <MSBuild Projects="validations\HorseIntensiveDelphi2020_Validation.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="HorseIntensiveDelphi2020_Basic;HorseIntensiveDelphi2020_Annotation"/>
+        <CallTarget Targets="HorseIntensiveDelphi2020_Basic;HorseIntensiveDelphi2020_Annotation;HorseIntensiveDelphi2020_Validation"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="HorseIntensiveDelphi2020_Basic:Clean;HorseIntensiveDelphi2020_Annotation:Clean"/>
+        <CallTarget Targets="HorseIntensiveDelphi2020_Basic:Clean;HorseIntensiveDelphi2020_Annotation:Clean;HorseIntensiveDelphi2020_Validation:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="HorseIntensiveDelphi2020_Basic:Make;HorseIntensiveDelphi2020_Annotation:Make"/>
+        <CallTarget Targets="HorseIntensiveDelphi2020_Basic:Make;HorseIntensiveDelphi2020_Annotation:Make;HorseIntensiveDelphi2020_Validation:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
