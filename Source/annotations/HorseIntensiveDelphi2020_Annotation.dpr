@@ -10,7 +10,7 @@ uses
   System.SysUtils,
   Model.Error in '..\model\Model.Error.pas',
   Model.User in '..\model\Model.User.pas',
-  Annotation.Controller.User in 'Annotation.Controller.User.pas';
+  Controller.User in 'Controller.User.pas';
 
 procedure SwaggerConfig;
 begin

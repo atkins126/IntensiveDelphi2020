@@ -16,7 +16,7 @@ type
   TControllerUser = class(THorseGBSwagger)
 
   public
-    [SwagGET('List Users')]
+    [SwagGET('List Users', True)]
     [SwagParamQuery('id', 'user id')]
     [SwagResponse(200, TUser, 'Users data', True)]
     procedure GetUsers;

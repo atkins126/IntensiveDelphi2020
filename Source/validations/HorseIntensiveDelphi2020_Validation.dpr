@@ -26,6 +26,7 @@ begin
         .URL('http://www.mypage.com.br')
       .&End
     .&End
+    .AddBearerSecurity.&End
     .Register
       .SchemaOnError(TAPIError)
     .&End

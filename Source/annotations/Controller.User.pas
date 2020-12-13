@@ -1,4 +1,4 @@
-unit Annotation.Controller;
+unit Controller.User;
 
 interface
 
@@ -9,6 +9,7 @@ uses
   GBSwagger.Path.Attributes;
 
 type
+  [SwagPath('user', 'Users')]
   TControllerUser = class(THorseGBSwagger)
 
   public
